@@ -23,11 +23,11 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *       http://www.apache.org/licenses/LICENSE-2.0
  *       -or-
  *       see COPYING.ASL20 in the source distribution
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -136,7 +136,7 @@ static struct cnfparamblk actpblk =
 	};
 
 BEGINinitConfVars		/* (re)set config variables to default values */
-CODESTARTinitConfVars 
+CODESTARTinitConfVars
 ENDinitConfVars
 
 /* We may change the implementation to try to lookup the port
@@ -355,7 +355,7 @@ CODESTARTnewActInst
 			  "param '%s'\n", actpblk.descr[i].name);
 		}
 	}
-	
+
 	CODE_STD_STRING_REQUESTnewActInst(1)
 
 	CHKiRet(OMSRsetEntry(*ppOMSR, 0, (uchar*)strdup((pData->tplName == NULL) ?
@@ -559,7 +559,7 @@ CODE_STD_STRING_REQUESTparseSelectorAct(1)
 			*(pData->port + i) = '\0';
 		}
 	}
-	
+
 	/* now skip to template */
 	bErr = 0;
 	while(*p && *p != ';') {
@@ -603,7 +603,7 @@ BEGINqueryEtryPt
 CODESTARTqueryEtryPt
 CODEqueryEtryPt_STD_OMOD_QUERIES
 CODEqueryEtryPt_STD_OMOD8_QUERIES
-CODEqueryEtryPt_STD_CONF2_CNFNAME_QUERIES 
+CODEqueryEtryPt_STD_CONF2_CNFNAME_QUERIES
 CODEqueryEtryPt_STD_CONF2_OMOD_QUERIES
 CODEqueryEtryPt_TXIF_OMOD_QUERIES
 CODEqueryEtryPt_SetShutdownImmdtPtr
@@ -617,7 +617,7 @@ INITLegCnfVars
 CODEmodInit_QueryRegCFSLineHdlr
 	/* create our relp engine */
 	CHKiRet(relpEngineConstruct(&pRelpEngine));
-	CHKiRet(relpEngineSetDbgprint(pRelpEngine, (void (*)(char *, ...))dbgprintf));
+	CHKiRet(relpEngineSetDbgprint(pRelpEngine, (void (*)(char *, ...))dbgprintDummy));
 	CHKiRet(relpEngineSetOnAuthErr(pRelpEngine, onAuthErr));
 	CHKiRet(relpEngineSetOnGenericErr(pRelpEngine, onGenericErr));
 	CHKiRet(relpEngineSetOnErr(pRelpEngine, onErr));
